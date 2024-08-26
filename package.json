@@ -1,11 +1,11 @@
 {
-  "name": "hydrogen-quickstart",
+  "name": "hydrogen-vite-on-netlify-demo",
   "private": true,
   "sideEffects": false,
   "version": "2024.7.5",
   "type": "module",
   "scripts": {
-    "build": "shopify hydrogen build --codegen",
+    "build": "remix vite:build",
     "dev": "shopify hydrogen dev --codegen",
     "preview": "shopify hydrogen preview --build",
     "lint": "eslint --no-error-on-unmatched-pattern --ext .js,.ts,.jsx,.tsx .",
@@ -13,6 +13,8 @@
   },
   "prettier": "@shopify/prettier-config",
   "dependencies": {
+    "@netlify/remix-edge-adapter": "^3.3.0",
+    "@netlify/remix-runtime": "^2.3.0",
     "@remix-run/react": "^2.10.1",
     "@remix-run/server-runtime": "^2.10.1",
     "@shopify/hydrogen": "2024.7.4",

@@ -85,10 +85,11 @@ export async function loader(args) {
  */
 async function loadCriticalData({context}) {
   const {storefront} = context;
+  console.log('loadCriticalData', storefront);
 
   const [header] = await Promise.all([
     storefront.query(HEADER_QUERY, {
-      cache: storefront.CacheLong(),
+      // cache: storefront.CacheLong(),
       variables: {
         headerMenuHandle: 'main-menu', // Adjust to your header menu handle
       },
@@ -109,11 +110,12 @@ async function loadCriticalData({context}) {
  */
 function loadDeferredData({context}) {
   const {storefront, customerAccount, cart} = context;
+  console.log('loadDeferredData', storefront);
 
   // defer the footer query (below the fold)
   const footer = storefront
     .query(FOOTER_QUERY, {
-      cache: storefront.CacheLong(),
+      // cache: storefront.CacheLong(),
       variables: {
         footerMenuHandle: 'footer', // Adjust to your footer menu handle
       },
@@ -196,6 +198,4 @@ export function ErrorBoundary() {
 
 /** @typedef {LoaderReturnData} RootLoader */
 
-/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @typedef {import('@remix-run/react').ShouldRevalidateFunction} ShouldRevalidateFunction */
-/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
